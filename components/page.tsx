@@ -28,8 +28,8 @@ export default function LandingPage() {
       <header className="bg-white shadow-md sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <Link href="/" className="flex items-center space-x-2">
-            <GraduationCap className="h-8 w-8 text-gray-800" />
-            <span className="text-xl font-bold text-gray-800">Shree Manjunath School of Nursing</span>
+            <GraduationCap className="h-6 w-6 md:h-8 md:w-8 text-gray-800" />
+            <span className="text-lg md:text-xl font-bold text-gray-800">Shree Manjunath School of Nursing</span>
           </Link>
           {/* <nav className="hidden md:flex space-x-4">
             <NavLink href="#about">About</NavLink>
@@ -76,7 +76,7 @@ export default function LandingPage() {
 
       <footer className="bg-gray-900 text-white py-8">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div>
               <h3 className="font-bold mb-2">About Us</h3>
               <p className="text-sm text-gray-400">Shree Manjunath School of Nursing, operated by Neta Subhashchandra Bose Charitable Trust, Mayani, is dedicated to providing quality nursing education to rural students.</p>
@@ -133,17 +133,17 @@ function HeroSection() {
   ]
 
   return (
-    <section className="py-20 bg-gradient-to-r from-gray-900 to-gray-700 text-white">
+    <section className="py-12 md:py-20 bg-gradient-to-r from-gray-900 to-gray-700 text-white">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-8 md:mb-0">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <h1 className="text-3xl md:text-5xl font-bold mb-4">
               Shape Your Future in Nursing
             </h1>
-            <p className="text-xl mb-8">
+            <p className="text-lg md:text-xl mb-8">
               Join Shree Manjunath School of Nursing for a rewarding career in healthcare. Special opportunity for rural boys and girls!
             </p>
-            <div className="flex space-x-4">
+            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
               <Button size="lg" className="bg-white text-gray-800 hover:bg-gray-200">
                 Apply Now for 2024-25
               </Button>
@@ -152,8 +152,8 @@ function HeroSection() {
               </Button>
             </div>
           </div>
-          <div className="md:w-1/2">
-            <Carousel className="w-full max-w-xs mx-auto">
+          <div className="md:w-1/2 mt-8 md:mt-0">
+            <Carousel className="w-full max-w-md mx-auto">
               <CarouselContent>
                 {images.map((src, index) => (
                   <CarouselItem key={index}>
@@ -186,20 +186,20 @@ function RecognitionSection() {
   ]
 
   return (
-    <section className="py-16 bg-gray-100">
+    <section className="py-12 md:py-16 bg-gray-100">
       <div className="container mx-auto px-4 text-center">
-        <h2 className="text-3xl font-bold text-gray-800 mb-8">Our Recognitions</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-8">Our Recognitions</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {recognitions.map((recognition, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white p-6 rounded-lg shadow-md flex items-center space-x-4"
+              className="bg-white p-4 md:p-6 rounded-lg shadow-md flex items-center space-x-4"
             >
-              <Award className="h-8 w-8 text-gray-600 flex-shrink-0" />
-              <p className="text-gray-800">{recognition}</p>
+              <Award className="h-6 w-6 md:h-8 md:w-8 text-gray-600 flex-shrink-0" />
+              <p className="text-sm md:text-base text-gray-800">{recognition}</p>
             </motion.div>
           ))}
         </div>
@@ -216,22 +216,22 @@ function AboutSection() {
   ]
 
   return (
-    <section id="about" className="py-16">
+    <section id="about" className="py-12 md:py-16">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">About Our School</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">About Our School</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-lg text-gray-600 mb-4">
+            <p className="text-base md:text-lg text-gray-600 mb-4">
               Shree Manjunath School of Nursing, operated by Neta Subhashchandra Bose Charitable Trust, Mayani, is dedicated to providing quality nursing education to rural students.
             </p>
-            <p className="text-lg text-gray-600 mb-4">
+            <p className="text-base md:text-lg text-gray-600 mb-4">
               Our mission is to empower the next generation of nurses with knowledge, skills, and compassion to serve in various healthcare settings.
             </p>
-            <p className="text-lg text-gray-600">
+            <p className="text-base md:text-lg text-gray-600">
               With state-of-the-art facilities and experienced faculty, we ensure our students receive the best possible education and practical training.
             </p>
           </motion.div>
@@ -266,9 +266,9 @@ function AboutSection() {
 
 function ProgramsSection() {
   return (
-    <section id="programs" className="py-16 bg-gray-100">
+    <section id="programs" className="py-12 md:py-16 bg-gray-100">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Our Programs</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">Our Programs</h2>
         <Tabs defaultValue="gnm" className="w-full">
           <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="gnm">G.N.M. Program</TabsTrigger>
@@ -324,17 +324,17 @@ function ProgramsSection() {
 
 function FacilitiesSection() {
   const facilities = [
-    { icon: <Hospital className="h-8 w-8" />, title: "200+ Bed Hospital", description: "Full-fledged general hospital for hands-on training" },
-    { icon: <Book className="h-8 w-8" />, title: "Well-Equipped Library", description: "Extensive collection of nursing textbooks and journals" },
-    { icon: <Users className="h-8 w-8" />, title: "Experienced Faculty", description: "Learn from seasoned nursing professionals" },
-    { icon: <GraduationCap className="h-8 w-8" />, title: "Computer Lab", description: "Modern lab for research and skill development" },
+    { icon: <Hospital className="h-6 w-6 md:h-8 md:w-8" />, title: "200+ Bed Hospital", description: "Full-fledged general hospital for hands-on training" },
+    { icon: <Book className="h-6 w-6 md:h-8 md:w-8" />, title: "Well-Equipped Library", description: "Extensive collection of nursing textbooks and journals" },
+    { icon: <Users className="h-6 w-6 md:h-8 md:w-8" />, title: "Experienced Faculty", description: "Learn from seasoned nursing professionals" },
+    { icon: <GraduationCap className="h-6 w-6 md:h-8 md:w-8" />, title: "Computer Lab", description: "Modern lab for research and skill development" },
   ]
 
   return (
-    <section id="facilities" className="py-16">
+    <section id="facilities" className="py-12 md:py-16">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Our Facilities</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">Our Facilities</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {facilities.map((facility, index) => (
             <motion.div
               key={index}
@@ -344,13 +344,13 @@ function FacilitiesSection() {
             >
               <Card>
                 <CardHeader>
-                  <CardTitle className="flex items-center space-x-2">
+                  <CardTitle className="flex items-center space-x-2 text-lg md:text-xl">
                     {facility.icon}
                     <span>{facility.title}</span>
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p>{facility.description}</p>
+                  <p className="text-sm md:text-base">{facility.description}</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -363,16 +363,16 @@ function FacilitiesSection() {
 
 function AdmissionsSection() {
   return (
-    <section id="admissions" className="py-16 bg-gray-100">
+    <section id="admissions" className="py-12 md:py-16 bg-gray-100">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Admissions</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">Admissions</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <Card>
             <CardHeader>
               <CardTitle>Admission Process</CardTitle>
             </CardHeader>
             <CardContent>
-              <ol className="list-decimal pl-5 space-y-2">
+              <ol className="list-decimal pl-5 space-y-2 text-sm md:text-base">
                 <li>Submit application form</li>
                 <li>Provide academic records</li>
                 <li>Entrance examination</li>
@@ -386,7 +386,7 @@ function AdmissionsSection() {
               <CardTitle>Financial Aid</CardTitle>
             </CardHeader>
             <CardContent>
-              <ul className="list-disc pl-5 space-y-2">
+              <ul className="list-disc pl-5 space-y-2 text-sm md:text-base">
                 <li>100% educational loan assistance for economically weaker sections</li>
                 <li>Merit-based scholarships</li>
                 <li>Government schemes for rural students</li>
@@ -411,23 +411,23 @@ function TestimonialsSection() {
   ]
 
   return (
-    <section className="py-16">
+    <section className="py-12 md:py-16">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">What Our Students Say</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">What Our Students Say</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <Card key={index}>
               <CardHeader>
-                <CardTitle>{testimonial.name}</CardTitle>
+                <CardTitle className="text-lg md:text-xl">{testimonial.name}</CardTitle>
                 <CardDescription>{testimonial.role}</CardDescription>
               </CardHeader>
               <CardContent>
-                <p>&quot;{testimonial.content}&quot;</p>
+                <p className="text-sm md:text-base">&quot;{testimonial.content}&quot;</p>
               </CardContent>
               <CardFooter>
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="h-5 w-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                    <svg key={i} className="h-4 w-4 md:h-5 md:w-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
@@ -461,9 +461,9 @@ function NewsEventsSection() {
   ]
 
   return (
-    <section className="py-16 bg-gray-100">
+    <section className="py-12 md:py-16 bg-gray-100">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">News & Events</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">News & Events</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {newsEvents.map((item, index) => (
             <motion.div
@@ -474,11 +474,11 @@ function NewsEventsSection() {
             >
               <Card>
                 <CardHeader>
-                  <CardTitle>{item.title}</CardTitle>
+                  <CardTitle className="text-lg md:text-xl">{item.title}</CardTitle>
                   <CardDescription>{item.date}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p>{item.description}</p>
+                  <p className="text-sm md:text-base">{item.description}</p>
                 </CardContent>
                 <CardFooter>
                   <Button variant="outline">Learn More</Button>
@@ -494,14 +494,14 @@ function NewsEventsSection() {
 
 function ContactSection() {
   return (
-    <section id="contact" className="py-16 bg-gradient-to-r from-gray-900 to-gray-700 text-white">
+    <section id="contact" className="py-12 md:py-16 bg-gradient-to-r from-gray-900 to-gray-700 text-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-8 text-center">Contact Us</h2>
+        <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">Contact Us</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <h3 className="text-xl font-semibold mb-4">Get in Touch</h3>
             <p className="mb-4">Have questions about our programs or admissions? Reach out to us!</p>
-            <ul className="space-y-2">
+            <ul className="space-y-2 text-sm md:text-base">
               <li className="flex items-center"><MapPin className="h-5 w-5 mr-2" /> Khade Complex, Near Nigam Hospital, Dahivadi Chowk, Vaduj</li>
               <li className="flex items-center"><Phone className="h-5 w-5 mr-2" /> 7385685431, 7385425431</li>
               <li className="flex items-center"><Mail className="h-5 w-5 mr-2" /> info@shreemanjunath.edu</li>
