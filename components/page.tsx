@@ -2,15 +2,23 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { Menu, X, ChevronRight, Award, Briefcase, GraduationCap, Book, Hospital, Users, Calendar, MapPin, Phone, Mail } from 'lucide-react'
+import { Menu, X, Award, GraduationCap, Book, Hospital, Users, MapPin, Phone, Mail } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
 
-export function Page() {
+export default function LandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
@@ -23,13 +31,13 @@ export function Page() {
             <GraduationCap className="h-8 w-8 text-gray-800" />
             <span className="text-xl font-bold text-gray-800">Shree Manjunath School of Nursing</span>
           </Link>
-          <nav className="hidden md:flex space-x-4">
-            {/* <NavLink href="#about">About</NavLink>
+          {/* <nav className="hidden md:flex space-x-4">
+            <NavLink href="#about">About</NavLink>
             <NavLink href="#programs">Programs</NavLink>
             <NavLink href="#facilities">Facilities</NavLink>
             <NavLink href="#admissions">Admissions</NavLink>
-            <NavLink href="#contact">Contact</NavLink> */}
-          </nav>
+            <NavLink href="#contact">Contact</NavLink>
+          </nav> */}
           <div className="md:hidden">
             <button onClick={toggleMenu} className="text-gray-800">
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -43,8 +51,8 @@ export function Page() {
             exit={{ opacity: 0, y: -20 }}
             className="md:hidden bg-white shadow-lg rounded-b-lg"
           >
-            {/* <nav className="flex flex-col items-center py-4"> */}
-              {/* <NavLink href="#about" onClick={toggleMenu}>About</NavLink>
+            {/* <nav className="flex flex-col items-center py-4">
+              <NavLink href="#about" onClick={toggleMenu}>About</NavLink>
               <NavLink href="#programs" onClick={toggleMenu}>Programs</NavLink>
               <NavLink href="#facilities" onClick={toggleMenu}>Facilities</NavLink>
               <NavLink href="#admissions" onClick={toggleMenu}>Admissions</NavLink>
@@ -118,6 +126,12 @@ export function Page() {
 // }
 
 function HeroSection() {
+  const images = [
+    "/placeholder.svg?height=400&width=600",
+    "/placeholder.svg?height=400&width=600",
+    "/placeholder.svg?height=400&width=600"
+  ]
+
   return (
     <section className="py-20 bg-gradient-to-r from-gray-900 to-gray-700 text-white">
       <div className="container mx-auto px-4">
@@ -139,11 +153,23 @@ function HeroSection() {
             </div>
           </div>
           <div className="md:w-1/2">
-            <img
-              src="/placeholder.svg?height=400&width=600"
-              alt="Nursing students in action"
-              className="rounded-lg shadow-lg"
-            />
+            <Carousel className="w-full max-w-xs mx-auto">
+              <CarouselContent>
+                {images.map((src, index) => (
+                  <CarouselItem key={index}>
+                    <Image
+                      src={src}
+                      alt={`Nursing students in action ${index + 1}`}
+                      width={600}
+                      height={400}
+                      className="rounded-lg shadow-lg"
+                    />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
           </div>
         </div>
       </div>
@@ -183,6 +209,12 @@ function RecognitionSection() {
 }
 
 function AboutSection() {
+  const images = [
+    "/placeholder.svg?height=400&width=600",
+    "/placeholder.svg?height=400&width=600",
+    "/placeholder.svg?height=400&width=600"
+  ]
+
   return (
     <section id="about" className="py-16">
       <div className="container mx-auto px-4">
@@ -208,11 +240,23 @@ function AboutSection() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <img
-              src="/placeholder.svg?height=400&width=600"
-              alt="Nursing students in a classroom"
-              className="rounded-lg shadow-md"
-            />
+            <Carousel className="w-full max-w-md mx-auto">
+              <CarouselContent>
+                {images.map((src, index) => (
+                  <CarouselItem key={index}>
+                    <Image
+                      src={src}
+                      alt={`Nursing school facility ${index + 1}`}
+                      width={600}
+                      height={400}
+                      className="rounded-lg shadow-md"
+                    />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
           </motion.div>
         </div>
       </div>
@@ -361,7 +405,7 @@ function AdmissionsSection() {
 
 function TestimonialsSection() {
   const testimonials = [
-    { name: "Priya Sharma", role: "G.N.M. Graduate", content: "The education and training I received at Shree Manjunath School of Nursing prepared me well for my nursing career. The faculty's support was invaluable." },
+    { name: "Priya Sharma", role: "G.N.M. Graduate", content: "The education and training I received at Shree Manjunath School of Nursing prepared me well for my nursing career. The faculty&apos;s support was invaluable." },
     { name: "Rahul Patil", role: "Current Student", content: "The clinical training opportunities here are excellent. I feel confident about my skills and future job prospects." },
     { name: "Dr. Anjali Desai", role: "Local Hospital Director", content: "Graduates from this school consistently demonstrate high levels of skill and professionalism. They are always in demand at our hospital." },
   ]
@@ -378,7 +422,7 @@ function TestimonialsSection() {
                 <CardDescription>{testimonial.role}</CardDescription>
               </CardHeader>
               <CardContent>
-                <p>"{testimonial.content}"</p>
+                <p>&quot;{testimonial.content}&quot;</p>
               </CardContent>
               <CardFooter>
                 <div className="flex">

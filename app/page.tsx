@@ -1,4 +1,4 @@
-import { Page } from "@/components/page";
+import LandingPage from "@/components/page";
 
 
 export default function Home() {
@@ -6,7 +6,7 @@ export default function Home() {
     <>
     
     <div>
-   <Page />
+   <LandingPage />
     </div>
     </>
   );
