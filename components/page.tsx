@@ -31,13 +31,13 @@ export default function LandingPage() {
             <GraduationCap className="h-6 w-6 md:h-8 md:w-8 text-gray-800" />
             <span className="text-lg md:text-xl font-bold text-gray-800">Shree Manjunath School of Nursing</span>
           </Link>
-          {/* <nav className="hidden md:flex space-x-4">
-            <NavLink href="#about">About</NavLink>
-            <NavLink href="#programs">Programs</NavLink>
-            <NavLink href="#facilities">Facilities</NavLink>
-            <NavLink href="#admissions">Admissions</NavLink>
-            <NavLink href="#contact">Contact</NavLink>
-          </nav> */}
+          <nav className="hidden md:flex space-x-4">
+            <Link href="/about" className="text-gray-800">About</Link>
+            <Link href="/programs" className="text-gray-800">Programs</Link>
+            <Link href="/facilities" className="text-gray-800">Facilities</Link>
+            <Link href="/admissions" className="text-gray-800">Admissions</Link>
+            <Link href="/contact" className="text-gray-800">Contact</Link>
+          </nav>
           <div className="md:hidden">
             <button onClick={toggleMenu} className="text-gray-800">
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -51,13 +51,13 @@ export default function LandingPage() {
             exit={{ opacity: 0, y: -20 }}
             className="md:hidden bg-white shadow-lg rounded-b-lg"
           >
-            {/* <nav className="flex flex-col items-center py-4">
-              <NavLink href="#about" onClick={toggleMenu}>About</NavLink>
-              <NavLink href="#programs" onClick={toggleMenu}>Programs</NavLink>
-              <NavLink href="#facilities" onClick={toggleMenu}>Facilities</NavLink>
-              <NavLink href="#admissions" onClick={toggleMenu}>Admissions</NavLink>
-              <NavLink href="#contact" onClick={toggleMenu}>Contact</NavLink>
-            </nav> */}
+            <nav className="flex flex-col items-center py-4">
+              <Link href="/about" onClick={toggleMenu}>About</Link>
+              <Link href="/programs" onClick={toggleMenu}>Programs</Link>
+              <Link href="/facilities" onClick={toggleMenu}>Facilities</Link>
+              <Link href="/admissions" onClick={toggleMenu}>Admissions</Link>
+              <Link href="/contact" onClick={toggleMenu}>Contact</Link>
+            </nav>
           </motion.div>
         )}
       </header>
@@ -84,11 +84,11 @@ export default function LandingPage() {
             <div>
               <h3 className="font-bold mb-2">Quick Links</h3>
               <ul className="text-sm text-gray-400">
-                <li><Link href="#about">About Us</Link></li>
-                <li><Link href="#programs">Programs</Link></li>
-                <li><Link href="#facilities">Facilities</Link></li>
-                <li><Link href="#admissions">Admissions</Link></li>
-                <li><Link href="#contact">Contact</Link></li>
+                <li><Link href="/about">About Us</Link></li>
+                <li><Link href="/programs">Programs</Link></li>
+                <li><Link href="/facilities">Facilities</Link></li>
+                <li><Link href="/admissions">Admissions</Link></li>
+                <li><Link href="/contact">Contact</Link></li>
               </ul>
             </div>
             <div>
@@ -117,13 +117,13 @@ export default function LandingPage() {
   )
 }
 
-// function NavLink({ href, children, onClick }) {
-//   return (
-//     <Link href={href} className="text-gray-800 hover:text-gray-600 py-2 px-3 rounded transition duration-300" onClick={onClick}>
-//       {children}
-//     </Link>
-//   )
-// }
+function NavLink({ href, children, onClick }: { href: string; children: React.ReactNode; onClick?: () => void }) {
+  return (
+    <Link href={href} className="text-gray-800 hover:text-gray-600 py-2 px-3 rounded transition duration-300" onClick={onClick}>
+      {children}
+    </Link>
+  )
+}
 
 function HeroSection() {
   const images = [
