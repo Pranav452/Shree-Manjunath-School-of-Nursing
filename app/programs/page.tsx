@@ -1,9 +1,10 @@
 import React from 'react'
+import { NextPage } from 'next'
 
-const page = () => {
+const ProgramsPage: NextPage = () => {
   return (
     <div>page</div>
   )
 }
 
-export default page
+export default ProgramsPage
